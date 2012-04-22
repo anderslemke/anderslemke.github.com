@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hello World!
+title: Anders Lemke
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
