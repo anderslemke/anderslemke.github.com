@@ -9,7 +9,7 @@ _Please note, that the proposed patterns only works **after** [this commit](http
 
 When I first heard about [DCI](http://en.wikipedia.org/wiki/Data,_Context,_and_Interaction), I almost couldn't get my arms down. I have long felt that my models tended to get really fat. Of course, that was a good thing in the "skinny controllers - fat models"-days, but as applications grew, and each model played more and more different _roles_ in more and more different _contexts_, the fat models simply grew too fat.
 
-So I started playing around with DCI, which in turn made me think about Rails model validations.
+So we started playing around with DCI on autobutler.dk, which in turn made me think about Rails model validations.
 
 Validations could very well be context specific, and the model itself, i.e. the DCI data, should only care about the validations needed to persist the objects in the database.
 
