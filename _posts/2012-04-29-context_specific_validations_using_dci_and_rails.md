@@ -1,7 +1,7 @@
 ---
 layout: post
 tags : [dci, ruby, rails, architecture]
-title: Context specific validations when using DCI and Rails
+title: Context specific validations using DCI and Rails
 ---
 {% include JB/setup %}
 
