@@ -1,6 +1,6 @@
 ---
 layout: post
-tags : [heroku git github bash-script]
+tags : [heroku, git, github, bash, scripts]
 ---
 {% include JB/setup %}
 
