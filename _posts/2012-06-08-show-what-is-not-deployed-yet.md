@@ -14,7 +14,7 @@ To do this quickly from a shell (Mac OS), I do this
     set `git ls-remote heroku-production`;
     open "https://github.com/[your_github_user]/[the_github_project]/compare/$1...master";
 
-(Remember to change the stuff in the []'s.)
+(Remember to change the stuff in the brackets.)
 
 You then get i nice view that shows exactly what you need:
 
