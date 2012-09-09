@@ -16,7 +16,7 @@ To do this quickly from a shell (Mac OS), I do this
 
 (Remember to change the stuff in the brackets.)
 
-You then get i nice view that shows exactly what you need:
+You then get a nice view that shows exactly what you need:
 
 ![Compare view on Github](/assets/images/compare_view_on_github.png)
 
