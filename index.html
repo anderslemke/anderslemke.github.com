@@ -15,20 +15,23 @@
     }
     .card {
       position:fixed;
+      z-index: 11;
       top:50%;
       left:50%;
 
-      width:400px;
+      width:470px;
 
       margin-top:-133px;
-      margin-left:-215px;
-      padding:100px 0 30px 30px;
+      margin-left:-235px;
+      padding:130px 0 30px 30px;
 
       background-color: rgb(247,249,248);
 
       box-shadow: 0px 0px 100px 0px #000;
 
       border-radius: 1px;
+
+      overflow:hidden;
     }
     .card h1, .card address, .card p {
       margin: 0;
@@ -54,6 +57,14 @@
       font-size:1.1em;
       font-weight: bold;
     }
+    .card .theA {
+      position: absolute;
+      z-index: 12;
+      font-size: 30em;
+      top:-80px;
+      right:-20px;
+      color: #BBB;
+    }
   </style>
 </head>
 <body>
@@ -70,6 +81,7 @@
     <p>
       <a href="mailto:mail@anderslemke.dk"><span class="icon">&#9993;</span> mail@anderslemke.dk</a>
     </p>
+    <div class="theA">A</div>
   </div>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
