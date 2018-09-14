@@ -10,16 +10,17 @@
 
       gtag('config', 'UA-12939369-1');
     </script>
+      <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREREREQEBEREAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAABABEQAREBAAAAERAAEQAAAAAREAAREAAAAAAAAAAREAAAAAABERAAAAAAABERABAAAAAAEREQAQAAAAAREREQEAABERERERERERERERH//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Event Sourcing</title>
+    <title>Anders Lemke</title>
 
     <link rel="stylesheet" href="lib/css/tailwind.min.css">
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/zetland.css">
+    <link rel="stylesheet" href="css/theme/anders.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -37,235 +38,16 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
-          <img class="plain logo mb-8" src="graphic/zetland.jpg" />
-          <h1 class="pb-0 mb-0">Events on Rails</h1>
-          <p class="text-xs pt-0 mt-0">Applied <span class="es">Event Sourcing</span>, <span class="ddd">Domain Driven Design</span> and <span class="cqrs">CQRS</span></p>
+        <section class="flex justify-center align-center">
+          <h1 class="pb-0 mb-0">Anders Lemke</h1>
+          <p class="text-grey text-sm font-thin">
+            Lead Developer at Zetland<br/>
+          </p>
           <p class="text-grey text-xs font-thin mt-8">
-            by Anders Lemke <br/>
-            Lead Developer at Zetland
+            <a href="tel:+4520442127">📱 +45 20442127</a><br />
+            <a href="mailto:mail@anderslemke.dk">💌 anders@lemke.dk</a><br />
+            <a href="https://twitter.com/anderslemke">🐦 @anderslemke</a><br />
           </p>
-          <aside data-markdown class="notes">
-            Goals:
-            1. Inspire
-            2. Motivate
-          </aside>
-        </section>
-        <section>
-          <h3>Have you ever</h3>
-          <ul>
-            <li class="fragment">felt <strong>discrepancy</strong> in code concepts and business concepts?</li>
-            <li class="fragment">built the <strong>database schema</strong> before the user experience?</li>
-            <li class="fragment"><strong>overengineered</strong> (what turned out to be) simple concepts?</li>
-            <li class="fragment">deleted data on a production system by accident because of <strong>unforseen side effects</strong>?</li>
-            <li class="fragment">struggled with performance of <strong>tables that did too much</strong>?</li>
-          </ul>
-          <h3 class="fragment pt-4">Yeah, me neither! 😇</h3>
-        </section>
-        <section>
-          <p class="fragment text-grey"><span class="es">Event Sourcing</span> // <span class="cqrs">CQRS</span> // <span class="ddd">Bounded Context</span></p>
-          <h1 class="fragment">Events are key</h1>
-          <aside data-markdown class="notes">
-            Searched
-
-            Events
-
-            Confuse
-          </aside>
-        </section>
-        <section data-transition="zoom-in slide-out">
-          <h1 style="font-size:300%">🤯</h1>
-        </section>
-        <section>
-          <h1>Why then?</h1>
-        </section>
-        <section>
-        </section>
-        <section>
-          Only design <strong>simple facts</strong>
-        </section>
-        <section>
-          <pre><code>
-        class Editor::StoryPublished < DomainEvent
-          attribute :story_content
-          attribute :story_id
-          attribute :user_id
-        end
-          </code></pre>
-        </section>
-        <section>
-          <strong>Behaviour</strong> over structure
-          <aside data-markdown class="notes">
-            Example with warehouse
-          </aside>
-        </section>
-        <section>
-          <section>
-            <strong class="cqrs">Decouple</strong> data change from data usage
-            <aside data-markdown class="notes">
-              Internal reporting that was wrong in counting reactivations
-            </aside>
-          </section>
-        </section>
-        <section>
-          <strong class="ddd fragment">Ubiquitous Language</strong>
-          <aside data-markdown class="notes">
-            Agile
-
-            Example that requires a bit domain knowledge
-          </aside>
-        </section>
-        <section>
-          <pre><code>
-  class MembershipActivatedMoreThanOnceNotificationCreated
-    attribute :user_id
-    attribute :count
-    attribute :activators
-  end
-          </code></pre>
-        </section>
-        <section>
-          <h1>But how?</h1>
-        </section>
-        <section>
-          <h1 class="storm">Event Storming</h1>
-        </section>
-        <section>
-          <h1 class="fragment es">Event Sourcing<span class="fragment">?</span></h1>
-          <p class="fragment">
-            The <strong>authoritative source of truth</strong> is an <br /><strong>append-only stream</strong> of <strong>immutable events</strong>
-          </p>
-        </section>
-        <section>
-          <ol>
-            <li>This happened</li>
-            <li>then, this happened</li>
-            <li>then, this happened</li>
-            <li>...</li>
-          </ol>
-        </section>
-        <section>
-          <h1>So, what happens?</h1>
-        </section>
-        <section>
-          <section>
-            <p>
-              The event is <strong>saved in our <span class="es">event store</span></strong>,<br/> then <strong>broadcasted to every <span class="ddd">bounded context</span></strong>
-            </p>
-          </section>
-          <section>
-            <img src="graphic/overview.svg" class="plain" />
-          </section>
-        </section>
-        <section>
-          <div class="flex items-center content-center justify-center">
-            <div class="text-left">
-              ✍️ A row for the news room <span class="text-xs ddd opacity-50">(Editor)</span>
-              <br /><br />
-              👩‍💻 A row for readers <span class="text-xs ddd opacity-50">(Consume)</span>
-              <br /><br />
-              📒 A row for internal reporting <span class="text-xs ddd opacity-50">(Internal reporting)</span>
-              <br /><br />
-              🏞 A row for discovery <span class="text-xs ddd opacity-50">(Discover)</span>
-              <br /><br />
-              💥 Invalidate the cache for that story
-            </div>
-          </div>
-        </section>
-        <section>
-          <p>
-            Example: A row for readers 👩‍💻 
-          </p>
-          <pre><code>
-    when Editor::StoryPublished
-      story = Consume::Story.find_or_create(event.story_id)
-      story.story_content = event.story_content
-      story.published_at ||= event.published_at
-      story.revised_at = event.event_published_at
-      story.save
-          </code></pre>
-        </section>
-        <section>
-          <div style="display:flex;justify-content:space-evenly;align-items:center;">
-            <img class="plain logo" src="graphic/zetland.jpg" />
-            <span>❤️</span>
-            <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;">
-              <img class="plain third-party-logo" src="graphic/elephant.png" />
-              <img class="plain third-party-logo" src="graphic/RabbitMQ-logo.svg" />
-              <img class="plain third-party-logo" src="graphic/ruby.png" />
-              <img class="plain third-party-logo" src="graphic/rails-logo.svg" />
-            </div>
-          </div>
-        </section>
-        <section>
-          <img src="graphic/overview.svg" class="plain" />
-        </section>
-        <section>
-          <h4>Challenges</h4>
-          <ul>
-            <li>Added complexity at high level</li>
-            <li>Write some new Rails generators</li>
-            <li>Quite a lot of moving parts</li>
-            <li>Relearn to design software</li>
-            <li>Eventual consistency</li>
-            <li>Evolving events over time</li>
-          </ul>
-        </section>
-        <section data-transition="zoom-in slide-out">
-          <span style="font-size:300%">🤯</span>
-        </section>
-        <section data-transition="zoom-in slide-out">
-          <span style="font-size:300%">😌</span>
-        </section>
-        <section>
-          <p>
-            Only design <strong>simple facts</strong>
-          </p>
-          <p>
-            <strong>Behaviour</strong> over structure
-          </p>
-          <p>
-            <strong class="cqrs">Decouple</strong> data change from data usage
-          </p>
-          <p>
-            <strong class="ddd">Ubiquitous Language</strong>
-          </p>
-        </section>
-        <section>
-          <h1>Questions 🤗</h1>
-        </section>
-        <section>
-          <h4>Standing on the shoulders of</h4>
-          <ul>
-            <li><strong>Eric Evans</strong></li>
-            <ul>
-              <li class="ddd">Design Driven Development</li>
-              <ul>
-                <li class="text-grey">Bounded context</li>
-                <li class="text-grey">Ubiquitous Language</li>
-              </ul>
-            </ul>
-            <li><strong>Greg Young</strong></li>
-            <ul>
-              <li class="es">Event Sourcing</li>
-              <li class="cqrs">CQRS</li>
-            </ul>
-            <li><strong>Alberto Brandolini</strong></li>
-            <ul>
-              <li class="storm">Event Storming</li>
-            </ul>
-
-          </ul>
-        </section>
-        <section>
-          <h4>Read</h4>
-          <ul>
-            <li><a href="https://www.confluent.io/blog/turning-the-database-inside-out-with-apache-samza/">Turning the database inside-out with Apache Samza</a> by <a href="https://www.confluent.io/blog/author/martin-kleppmann/">Martin Klepmann</a> </li>
-          </ul>
-
-        </section>
-        <section>
-          <h1>Thank you 🤗</h1>
         </section>
       </div>
     </div>
